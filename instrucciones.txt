@@ -1,0 +1,56 @@
+1- primero crea la base de datos con el nombre juegos.
+2- crea un archivo .env sin nombre solo el punto y copia el contenido inferior
+3- una vez dentro del ide usa composer install, para instalar las dependencias de laravel
+4- usa php artisan key:generate par ageneral la key nueva del proyecto
+5- usa php artisan migrate:fresh para que se creen las tablas pertienetes en la base de datos
+6- a posterior deber usar el php artisan serve para arrancar el servidor, en la terminal te aparecera el link para ingresar al sistema.
+
+
+################################## datos .env ################################################
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=base64:0pQCvo34+S5AWNrF8dZvp49/DzjtLdDz4wMFUjJljSc=
+APP_DEBUG=true
+APP_URL=http://localhost
+
+LOG_CHANNEL=stack
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=juegos
+DB_USERNAME=root
+DB_PASSWORD=
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=mt1
+
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+
+################## fin datos .env ###################################
