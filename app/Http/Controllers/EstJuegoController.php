@@ -12,9 +12,16 @@ class EstJuegoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        //autentifica que el usuario este loguiado (evita el user guest)
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
-        //
+        $est= EstJuego::all();
+        return view('EstJuego.indexEstJuego',compact('est'));
     }
 
     /**
@@ -24,7 +31,7 @@ class EstJuegoController extends Controller
      */
     public function create()
     {
-        //
+        return view('EstJuego.createEstJuego');
     }
 
     /**
@@ -35,7 +42,12 @@ class EstJuegoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $est = new EstJuego();
+        $est->id_user = $request->input('id_user');
+        $est->id_juego = $request->input('id_juego');
+        $est->comentario = $request->input('comentario');
+        $est->save();
+        return redirect()->route('Estjuego.index');
     }
 
     /**
@@ -78,8 +90,9 @@ class EstJuegoController extends Controller
      * @param  \App\EstJuego  $estJuego
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EstJuego $estJuego)
+    public function destroy($estjuego)
     {
-        //
+        $delete = EstJuego::find($estjuego)->delete();
+        return redirect()->route('Estjuego.index');
     }
 }

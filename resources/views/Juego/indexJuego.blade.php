@@ -5,8 +5,9 @@
             <div class="col-md-12 row" >
                 <h1 class="col-md-10">vista general de juegos en sistema</h1>
                 <a class="btn btn-info col-md-2" href="{{ route('juego.create') }}">Crear nuevo juego</a>
-            </div>
 
+            </div>
+            <br>
             <table class="table table-responsive-sm">
                 <tr>
                     <th>Nombre del Juego</th>

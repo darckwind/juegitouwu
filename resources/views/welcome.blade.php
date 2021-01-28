@@ -79,20 +79,18 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+            <div class="container row">
+                @foreach(\App\EstJuego::all() as $data)
+                        <div class="col-md-4">
+                            <div class="card" >
+                                <div class="card-body">
+                                    <h5 class="card-title">Save {{\App\juego::find($data->id_juego)->nombre}}</h5>
+                                    <p class="card-text">{{$data->comentario}}</p>
+                                    <p class="card-text">publicado por: {{App\User::find($data->id_user)->name}}... Fecha publicaion: {{$data->created_at}}</p>
+                                </div>
+                            </div>
+                        </div>
+                @endforeach
             </div>
         </div>
     </body>

@@ -14,7 +14,11 @@ class JuegoController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function __construct(){
+        //autentifica que el usuario este loguiado (evita el user guest)
+        $this->middleware('auth');
 
+    }
     public function index()
     {
         $juegos_all = juego::all();
