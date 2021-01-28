@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\juego;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class JuegoController extends Controller
 {
@@ -12,9 +13,12 @@ class JuegoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        //
+        $juegos_all = juego::all();
+        return view('Juego.indexJuego',compact('juegos_all'));
     }
 
     /**
@@ -24,7 +28,7 @@ class JuegoController extends Controller
      */
     public function create()
     {
-        //
+        return view('Juego.createJuego');
     }
 
     /**
@@ -35,7 +39,15 @@ class JuegoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required'
+        ]);
+
+        $juego =  new juego();
+        $juego->nombre = $request->input('nombre');
+        $juego->descripcion = $request->input('descripcion');
+        $juego->save();
+        return redirect()->route('juego.index');
     }
 
     /**
@@ -57,7 +69,7 @@ class JuegoController extends Controller
      */
     public function edit(juego $juego)
     {
-        //
+        return view('Juego.editJuego',compact('juego'));
     }
 
     /**
@@ -69,7 +81,15 @@ class JuegoController extends Controller
      */
     public function update(Request $request, juego $juego)
     {
-        //
+        $request->validate([
+            'nombre' => 'required'
+        ]);
+
+        $juego->nombre = $request->input('nombre');
+        $juego->descripcion = $request->input('descripcion');
+        $juego->save();
+
+        return redirect()->route('juego.index');
     }
 
     /**
@@ -80,6 +100,7 @@ class JuegoController extends Controller
      */
     public function destroy(juego $juego)
     {
-        //
+        $juego->delete();
+        return redirect()->route('juego.index');
     }
 }
