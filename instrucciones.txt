@@ -1,3 +1,8 @@
+pasos previos
+1- descargar e installar php 7.4.X
+2- descargar e installar composer desde este link --> https://getcomposer.org/Composer-Setup.exe
+
+pasos para installar proyecto
 1- primero crea la base de datos con el nombre juegos.
 2- crea un archivo .env sin nombre solo el punto y copia el contenido inferior
 3- una vez dentro del ide usa composer install, para instalar las dependencias de laravel
